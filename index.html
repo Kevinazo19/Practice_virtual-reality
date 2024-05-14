@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <title>Juego Para Graficacion</title>
+                <link rel="icon" href="Recursos/logo.ico">
+                    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+                        <script src="function.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <img src="Recursos/Tierra.jpg" id="Hogar">
+            <img src="Recursos/Luna.jpeg" id="Objetivo">
+        </a-assets>
+
+        <a-sky src="#Hogar"></a-sky>
+                                                 <!--Ejes X,Y,Z-->
+        <a-sphere class="Orbita" src="#Objetivo" position="0 2 -5" scale="1.5 1.5 1.5" animation="property: 
+        rotation; to: 0 3600 360; loop: true; dur: 80000; easing: linear"></a-sphere>
+
+        <a-sphere class="Orbita" src="#Objetivo" position="0 2 5" scale="1.5 1.5 1.5" animation="property:
+        rotation; to: 0 3600 360; loop: true; dur: 120000; easing: linear"></a-sphere>
+
+
+        <a-entity camera look-controls>
+            <a-text value="0 Lunas Golpeadas" color="white" position="0 -0.1 -1" width="2" align="center"></a-text>
+            <a-entity cursor="fuse: true; fuseTimeout: 100" position="0 0 -1" raycaster="objects: .meteor"
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="shader: flat"></a-entity>
+    </a-entity>
+</a-scene>
+</body>
+</html>
